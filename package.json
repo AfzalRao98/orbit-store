@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --test tests/*.test.js",
+    "test": "node --test tests/*.test.js && python3 -B -m unittest discover -s tests -p test_vercel_domains.py",
     "demo:bug": "node scripts/demo-bug.js enable",
     "demo:reset": "node scripts/demo-bug.js reset"
   },
