@@ -17,3 +17,10 @@ test('Headphones category has three distinct, complete products',()=>{
  assert.equal(new Set(products.map(p=>p.id)).size,products.length);
  assert.ok(headphones.every(p=>p.art==='headphones'&&Number.isInteger(p.price)&&p.price>0&&p.description&&p.features.length&&p.color));
 });
+test('Data Cable category has three distinct, complete cables',()=>{
+ const cables=products.filter(p=>p.category==='Data Cable');
+ assert.ok(categories.some(c=>c.name==='Data Cable'&&c.art==='cable'&&c.description));
+ assert.deepEqual(cables.map(p=>p.slug),['everyday-usb-c-cable','braided-usb-c-cable','travel-usb-a-cable']);
+ assert.equal(new Set(products.map(p=>p.id)).size,products.length);
+ assert.ok(cables.every(p=>p.art==='cable'&&Number.isInteger(p.price)&&p.price>0&&p.description&&p.features.length&&p.color));
+});
